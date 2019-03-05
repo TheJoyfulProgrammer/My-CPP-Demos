@@ -13,8 +13,7 @@
     Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
     Tested Operating Systems: Linux Mint 19, Windows 7, Windows 10
 
-    Description: This is a Guess-A-Number / Pick-A-Number style game, but with a twist,
-                 and personality.
+    Description: This is a Guess-A-Number style game, but with a twist, and personality.
 */
 
 #include <iostream>
