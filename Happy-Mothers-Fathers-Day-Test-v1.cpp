@@ -20,7 +20,10 @@ int main()
         std::cout << "\nHave a wonderful day, " << name << "\n\n";
     }
 
-    getch();
+    std::cout << "<Press the enter/return key to exit>";
+
+    std::cin.ignore();
+    std::cin.get();
 
     return 0;
 }
