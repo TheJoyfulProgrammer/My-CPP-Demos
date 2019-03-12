@@ -1,3 +1,20 @@
+/*
+    Written by:  Walter Whitman aka Waltersmind aka The Joyful Programmer
+    March 4th, 2018
+    My website: http://www.TheJoyfulProgrammer.com/
+    FaceBook:   https://www.facebook.com/thejoyfulprogrammer/
+    Twitter:  	https://twitter.com/TheJoyfulProg
+    YouTube:    https://www.youtube.com/thejoyfulprogrammer
+    Pinterest:  https://www.pinterest.com/waltersmind/
+    GitHub:     https://github.com/TheJoyfulProgrammer/
+    Programming Language:     C++
+    Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
+    Tested Operating Systems: Linux Mint 19, Windows 7, Windows 10
+    Description: This C++ demo asks for a message from the user and the displays how many
+                 consonants, vowels, number, spaces, and punctuations there are in the
+                 message.
+*/
+
 #include <iostream>
 
 int main()
@@ -36,4 +53,3 @@ int main()
 
     return 0;
 }
-
