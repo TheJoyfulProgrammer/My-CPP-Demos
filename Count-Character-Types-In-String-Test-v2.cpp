@@ -13,6 +13,8 @@
     Description: This C++ demo asks for a message from the user and the displays how many
                  consonants, vowels, number, spaces, and punctuations there are in the
                  message.
+                 
+                 This second test is the foundation to testing multilingual characters. 
 */
 
 #include <iostream>
