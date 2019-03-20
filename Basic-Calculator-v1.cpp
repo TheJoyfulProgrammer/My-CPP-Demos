@@ -17,7 +17,6 @@
 */
 
 #include <iostream>
-#include <cctype>
 #include <stdexcept>
 
 int main()
