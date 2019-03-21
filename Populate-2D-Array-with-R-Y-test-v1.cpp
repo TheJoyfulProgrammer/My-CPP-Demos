@@ -8,7 +8,7 @@ namespace ConnectFour
     const uint8_t BoardColumns{7};
 
     char Board[BoardRows][BoardColumns];
-    int BoardTracker[BoardRows * BoardColumns];
+    uint16_t BoardTracker[BoardRows * BoardColumns];
     uint16_t CurrentPosition{0};
 
     std::string PopulationCharacters = "RY";
@@ -36,7 +36,7 @@ namespace ConnectFour
         std::cout << "Current Character: '" << PopulationCharacters[CurrentCharacter] << "'\n";
         Board[NewPosition / BoardColumns][NewPosition % BoardColumns] = PopulationCharacters[CurrentCharacter];
 
-        CurrentCharacter = (++CurrentCharacter) % PopulationCharacters.length();
+        CurrentCharacter = ++CurrentCharacter % PopulationCharacters.length();
 
         CurrentPosition++;
         if (CurrentPosition == (BoardRows * BoardColumns )) return true;
