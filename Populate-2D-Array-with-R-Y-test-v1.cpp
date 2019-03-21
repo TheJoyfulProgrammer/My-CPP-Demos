@@ -1,3 +1,23 @@
+/*
+    Written by:  Walter Whitman aka Waltersmind aka The Joyful Programmer
+    March 20th, 2019
+
+    My website: http://www.TheJoyfulProgrammer.com/
+    FaceBook:   https://www.facebook.com/thejoyfulprogrammer/
+    Twitter:  	https://twitter.com/TheJoyfulProg
+    YouTube:    https://www.youtube.com/thejoyfulprogrammer
+    Pinterest:  https://www.pinterest.com/waltersmind/
+    GitHub:     https://github.com/TheJoyfulProgrammer/
+
+    Programming Language:     C++ ver 17
+    Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
+    Tested Operating Systems: Linux Mint 19, Windows 7, Windows 10
+
+    Description: This demo fills a Connect Four board with 'R' and 'Y' pieces and prints the board on each turn.
+                 Since this is to show a student the simple logic behind what the teacher was asking for on the
+                 test, I decided to keep this demo simple.
+*/
+
 #include <iostream>
 #include <ctime>
 #include <cmath>
