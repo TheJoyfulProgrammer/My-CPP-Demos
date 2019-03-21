@@ -12,6 +12,7 @@ namespace ConnectFour
     uint16_t CurrentPosition{0};
 
     std::string PopulationCharacters = "RY";
+    uint16_t CurrentCharacter{0};
 
     void ResetBoard()
     {
@@ -32,7 +33,10 @@ namespace ConnectFour
 
         uint16_t NewPosition = BoardTracker[CurrentPosition];
 
-        Board[NewPosition / BoardColumns][NewPosition % BoardColumns] = PopulationCharacters[rand() % PopulationCharacters.length()];
+        std::cout << "Current Character: '" << PopulationCharacters[CurrentCharacter] << "'\n";
+        Board[NewPosition / BoardColumns][NewPosition % BoardColumns] = PopulationCharacters[CurrentCharacter];
+
+        CurrentCharacter = (++CurrentCharacter) % PopulationCharacters.length();
 
         CurrentPosition++;
         if (CurrentPosition == (BoardRows * BoardColumns )) return true;
