@@ -27,12 +27,12 @@ namespace ConnectFour
     const uint8_t BoardRows{6};
     const uint8_t BoardColumns{7};
 
-    char Board[BoardRows][BoardColumns];
     uint16_t BoardTracker[BoardRows * BoardColumns];
     uint16_t CurrentPosition{0};
+    uint16_t CurrentCharacter{0};
 
     std::string PopulationCharacters = "RY";
-    uint16_t CurrentCharacter{0};
+    char Board[BoardRows][BoardColumns];
 
     void ResetBoard()
     {
