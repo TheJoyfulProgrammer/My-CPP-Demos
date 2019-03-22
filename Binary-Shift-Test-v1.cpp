@@ -21,8 +21,8 @@
 
 int main()
 {
-    int Iterator1;
     long long unsigned Value = 1;
+    int Iterator1;
 
     for(Iterator1 = 0; Iterator1 < 32; Iterator1++)
     {
