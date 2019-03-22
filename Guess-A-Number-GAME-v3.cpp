@@ -26,12 +26,12 @@ int main()
    const int MaxNumber = 20;
    const int MaxGuessesLeft = 5;
 
+   long long unsigned int iteration;
+   float ChancePercentageOfGuessingCorrectly;
    int SecretNumber, GuessesLeft = MaxGuessesLeft, UserGuessedNumber, CinStatus;
    unsigned int RandomMessage;
-   float ChancePercentageOfGuessingCorrectly;
    std::vector<int> UserGuesses;
    bool UserAlreadyGuessedThisNumber;
-   long long unsigned int iteration;
 
    std::srand(time(NULL));
 
