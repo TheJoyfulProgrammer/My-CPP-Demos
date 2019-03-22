@@ -22,11 +22,11 @@
 int main()
 {
     long double LeftValue, RightValue;
-    unsigned char BasicOperator;
-    std::string UserExpression;
     int ValidUserExpression;
     int Iterator1, DecimalPointUsed;
     std::string ValidOperators = "+-*/";
+    std::string UserExpression;
+    unsigned char BasicOperator;
 
     std::cout << "This is a basic calculator.\n\nEnter an simple numerical math expression to be solved.\nThe expression must be in the form of:  Left-Value Operator Right-Value\nAcceptable operators are: Addition, subtaction, Multiplication, and Division.\n\n";
 
