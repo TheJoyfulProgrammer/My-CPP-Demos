@@ -40,9 +40,9 @@ namespace ConnectFour
         {
             Board[Iterator1 / BoardColumns][Iterator1 % BoardColumns] = '.';
             BoardTracker[Iterator1] = Iterator1;
-            CurrentPosition = 0;
         }
 
+        CurrentPosition = 0;
         srand (time(NULL));
     }
 
