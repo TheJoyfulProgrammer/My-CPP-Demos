@@ -47,7 +47,7 @@ int main()
         }
 
         GuessesRemaining--;
-    } while (GuessesRemaining > 1);
+    } while (GuessesRemaining > 0);
 
     if (GuessesRemaining > 0)
     {
