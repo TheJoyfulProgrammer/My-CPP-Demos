@@ -14,6 +14,7 @@
 */
 
 #include <iostream>
+#include <string> // Added for Visual Studio users. Not required for G++.
 #include <cmath>
 #include <algorithm>
 
@@ -40,7 +41,7 @@ int main()
 
     do
     {
-        AIGuess = std::ceil((HighestNumber - LowestNumber) / 2 + LowestNumber);
+        AIGuess = (uint16_t) std::ceil((HighestNumber - LowestNumber) / 2 + LowestNumber);
 
         std::cout << "Is your number: " << AIGuess << "?\n\n> ";
         std::cin >> UserInput;
