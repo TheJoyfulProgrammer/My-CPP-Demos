@@ -17,7 +17,7 @@ int main()
 
     std::cout << "This is a guess-the-number game where I, the computer, will attempt to guess\n"
                  "your number. I will guess your number within five tries. Statistically\n"
-                 "speaking, if I can't, the more-than-likely you lied about what your number is.\n\n"
+                 "speaking, if I can't, then more-than-likely you lied about what your number is.\n\n"
                  "Please choose a number from " << MinNumber << " to " << MaxNumber << " and remember it. Please do not tell me what\n"
                  "it is (I wont ask you anyways).\n\n"
                  "If your number is higher than what I guess, type, \"higher\". If your number is\n"
