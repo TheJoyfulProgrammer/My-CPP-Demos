@@ -13,18 +13,15 @@
     Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
     Tested Operating Systems: Linux Mint 19, Windows 7, Windows 10
 
-    Description: This is a basic ATM demo that shows how to have private data
-                 members and methods in namespaces, similar to classes.
+    Description: This is a basic ATM demo that shows how to use members and
+                 methods in namespaces.
 */
 
 #include <iostream>
 
 namespace BankAccount
 {
-    namespace
-    {
-        float ClientBalance{10};
-    }
+    float ClientBalance{10};
 
     void DepositFunds()
     {
