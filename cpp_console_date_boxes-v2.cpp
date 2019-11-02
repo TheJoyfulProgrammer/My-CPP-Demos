@@ -18,12 +18,12 @@
 int main ()
 {
     std::string Students[][3] = {{"Jackson", "Freddy", "94"},
-								 {"Johnson", "Frankie", "98"}, 
-								 {"Martin", "Donnie", "99"}, 
-								 {"Garland", "George", "100"}, 
-								 {"Clyde", "Bonnie", "69"}, 
-								 {"Gordan", "Elizabeth", "99"}
-								};
+				 {"Johnson", "Frankie", "98"}, 
+				 {"Martin", "Donnie", "99"}, 
+				 {"Garland", "George", "100"}, 
+				 {"Clyde", "Bonnie", "69"}, 
+				 {"Gordan", "Elizabeth", "99"}
+				};
 							   
     int BoxWidthLastName{15};
     int BoxWidthFirstName{15};
