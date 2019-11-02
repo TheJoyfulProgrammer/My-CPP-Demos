@@ -9,9 +9,8 @@
     GitHub:     https://github.com/TheJoyfulProgrammer/
     Programming Language:     C++ (ver 17)
     Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
-    Tested Operating Systems: Linux Mint 19, Windows 7, Windows 10
-    Description: This creates a diamond pattern. This demo uses the <iomanip> library
-                 which allows us to minimize the amount of std::cout statements used.
+    Tested Operating Systems: Linux Mint 19
+    Description: This demonstrates how to create beautiful data boxes in C++.
 */
 
 #include <iostream>
