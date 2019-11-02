@@ -30,7 +30,7 @@ int main ()
     int BoxWidthGrade{5};
     int Iterator1;
 
-   	std::cout << "+" ;
+    std::cout << "+" ;
     std::cout.width(BoxWidthLastName + 2);
     std::cout.fill('-');
     std::cout << "" << "+";
@@ -43,23 +43,22 @@ int main ()
     std::cout.fill('-');
     std::cout << "" << "+\n";
 
+    std::cout << "| ";
 
-	std::cout << "| ";
+    std::cout.width(BoxWidthLastName);
+    std::cout.fill(' ');
+    std::cout << "Last Name" << " | ";
 
-	std::cout.width(BoxWidthLastName);
-	std::cout.fill(' ');
-	std::cout << "Last Name" << " | ";
+    std::cout.width(BoxWidthFirstName);
+    std::cout.fill(' ');
+    std::cout << "First Name" << " | ";
 
-	std::cout.width(BoxWidthFirstName);
-	std::cout.fill(' ');
-	std::cout << "First Name" << " | ";
-
-	std::cout.width(BoxWidthGrade);
-	std::cout.fill(' ');
-	std::cout << "Grade" << " |\n";
+    std::cout.width(BoxWidthGrade);
+    std::cout.fill(' ');
+    std::cout << "Grade" << " |\n";
         
 
-	std::cout << "+" ;
+    std::cout << "+" ;
     std::cout.width(BoxWidthLastName + 2);
     std::cout.fill('-');
     std::cout << "" << "+";
@@ -74,23 +73,22 @@ int main ()
     
     for(Iterator1 = 0; Iterator1 < (sizeof(Students) / sizeof(Students[0])); Iterator1++)
     {
-		std::cout << "| ";
+	std::cout << "| ";
 
-		std::cout.width(BoxWidthLastName);
-		std::cout.fill(' ');
-		std::cout << Students[Iterator1][0] << " | ";
+	std::cout.width(BoxWidthLastName);
+	std::cout.fill(' ');
+	std::cout << Students[Iterator1][0] << " | ";
 
-		std::cout.width(BoxWidthFirstName);
-		std::cout.fill(' ');
-		std::cout << Students[Iterator1][1] << " | ";
+	std::cout.width(BoxWidthFirstName);
+	std::cout.fill(' ');
+	std::cout << Students[Iterator1][1] << " | ";
 
-		std::cout.width(BoxWidthGrade);
-		std::cout.fill(' ');
-		std::cout << Students[Iterator1][2] << " |\n";
+	std::cout.width(BoxWidthGrade);
+	std::cout.fill(' ');
+	std::cout << Students[Iterator1][2] << " |\n";
+    }
 
-	}
-
-	std::cout << "+";
+    std::cout << "+";
     std::cout.width(BoxWidthLastName + 2);
     std::cout.fill('-');
     std::cout << "" << "+";
