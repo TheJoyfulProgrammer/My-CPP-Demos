@@ -1,6 +1,6 @@
 /*
     Written by:  Walter Whitman aka Waltersmind aka The Joyful Programmer
-    April 14, 2019
+    November 2, 2019
     My website: http://www.TheJoyfulProgrammer.com/
     FaceBook:   https://www.facebook.com/thejoyfulprogrammer/
     Twitter:  	https://twitter.com/TheJoyfulProg
@@ -8,10 +8,9 @@
     Pinterest:  https://www.pinterest.com/waltersmind/
     GitHub:     https://github.com/TheJoyfulProgrammer/
     Programming Language:     C++ (ver 17)
-    Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
-    Tested Operating Systems: Linux Mint 19, Windows 7, Windows 10
-    Description: This creates a diamond pattern. This demo uses the <iomanip> library
-                 which allows us to minimize the amount of std::cout statements used.
+    Tested Compilers:         G++ ver 8
+    Tested Operating Systems: Linux Mint 19
+    Description: This demonstrates how to create beautiful data boxes in C++.
 */
 
 #include <iostream>
@@ -104,4 +103,3 @@ int main ()
     std::cout.fill('-');
     std::cout << "" << "+\n";
 }
-
