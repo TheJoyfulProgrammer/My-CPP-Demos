@@ -8,7 +8,7 @@
     Pinterest:  https://www.pinterest.com/waltersmind/
     GitHub:     https://github.com/TheJoyfulProgrammer/
     Programming Language:     C++ (ver 17)
-    Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
+    Tested Compilers:         G++ ver 8
     Tested Operating Systems: Linux Mint 19
     Description: This demonstrates how to create beautiful data boxes in C++.
 */
