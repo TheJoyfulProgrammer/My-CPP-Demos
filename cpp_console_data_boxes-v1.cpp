@@ -1,0 +1,41 @@
+/*
+    Written by:  Walter Whitman aka Waltersmind aka The Joyful Programmer
+    April 14, 2019
+    My website: http://www.TheJoyfulProgrammer.com/
+    FaceBook:   https://www.facebook.com/thejoyfulprogrammer/
+    Twitter:  	https://twitter.com/TheJoyfulProg
+    YouTube:    https://www.youtube.com/thejoyfulprogrammer
+    Pinterest:  https://www.pinterest.com/waltersmind/
+    GitHub:     https://github.com/TheJoyfulProgrammer/
+    Programming Language:     C++ (ver 17)
+    Tested Compilers:         G++ ver 8, MingW W64 GCC-8.1.0 x86_64-win32-seh
+    Tested Operating Systems: Linux Mint 19, Windows 7, Windows 10
+    Description: This creates a diamond pattern. This demo uses the <iomanip> library
+                 which allows us to minimize the amount of std::cout statements used.
+*/
+
+#include <iostream>
+
+int main ()
+{
+    std::string Names[] = {"Freddy", "Frankie", "Donnie", "George", "Bonnie", "Elizabeth"};
+
+    int BoxWidth = 20;
+    int Iterator1;
+    
+    std::cout.width(BoxWidth);
+    std::cout.fill('*');
+    std::cout << "" << "\n";
+    
+    for(Iterator1 = 0; Iterator1 < (sizeof(Names) / sizeof(std::string)); Iterator1++)
+    {
+		std::cout << "*";
+		std::cout.width(BoxWidth - 3);
+		std::cout.fill(' ');
+		std::cout << Names[Iterator1] << " *\n";
+	}
+
+    std::cout.width(BoxWidth);
+    std::cout.fill('*');
+    std::cout << "" << "\n\n\n";
+}
