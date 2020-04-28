@@ -4,7 +4,7 @@
 
     My website: http://www.TheJoyfulProgrammer.com/
     FaceBook:   https://www.facebook.com/thejoyfulprogrammer/
-    Twitter:  	https://twitter.com/TheJoyfulProg
+    Twitter:      https://twitter.com/TheJoyfulProg
     YouTube:    https://www.youtube.com/thejoyfulprogrammer
     Pinterest:  https://www.pinterest.com/waltersmind/
     GitHub:     https://github.com/TheJoyfulProgrammer/
@@ -49,16 +49,16 @@ int main()
    SecretNumber = std::rand() % MaxNumber + MinNumber;
 
    std::cout << "###  I am thinking of a number from " 
-			 << MinNumber 
-			 << " to " 
-			 << MaxNumber 
-			 << ".\n###  I am giving you " 
-			 << MaxGuessesLeft 
-			 << " chance"
-			 << (MaxGuessesLeft > 1 ? "s" : "")
-			 << " to guess it.\n###  This means you have a " 
-			 << ChancePercentageOfGuessingCorrectly 
-			 << "% chance of guessing my number.\n\n\n";
+             << MinNumber 
+             << " to " 
+             << MaxNumber 
+             << ".\n###  I am giving you " 
+             << MaxGuessesLeft 
+             << " chance"
+             << (MaxGuessesLeft > 1 ? "s" : "")
+             << " to guess it.\n###  This means you have a " 
+             << ChancePercentageOfGuessingCorrectly 
+             << "% chance of guessing my number.\n\n\n";
 
    do
    {
@@ -76,22 +76,22 @@ int main()
                   if (std::cin.fail()) {
                       CinStatus = false;
 
-   				      // Clear the std::cin error flag
-				      std::cin.clear();
-				      // Clear the remaining stream buffer 
-				      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                         // Clear the std::cin error flag
+                      std::cin.clear();
+                      // Clear the remaining stream buffer 
+                      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
                       std::cout << "\n\n###--->  I'm not sure what that answer means, but I know it's not a number\n###--->  "
-								   "from " 
-								<< MinNumber 
-								<< " to " 
-								<< MaxNumber 
-								<< ".\n\n\n";
+                                   "from " 
+                                << MinNumber 
+                                << " to " 
+                                << MaxNumber 
+                                << ".\n\n\n";
                   }
 
                } while (!CinStatus);
 
-			   // Clear the remaining stream buffer 
+               // Clear the remaining stream buffer 
                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
                if((UserGuessedNumber < MinNumber) or (UserGuessedNumber > MaxNumber))
@@ -101,45 +101,44 @@ int main()
                    if(UserGuessedNumber < 0)
                    {
                        std::cout << "###--->  You should start thinking happy and positive thoughts since I asked\n###--->  "
-									"for a positive number only.\n";
+                                    "for a positive number only.\n";
                    }
 
                    std::cout << "###--->  I am ignoring your answer of " 
-							 << UserGuessedNumber 
-							 << " since you are ignoring my rules.\n###--->  I asked you to guess a number from " 
-							 << MinNumber 
-							 << " to " 
-							 << MaxNumber 
-							 << ".\n###--->  How hard can that be to follow?\n\n\n";
+                             << UserGuessedNumber 
+                             << " since you are ignoring my rules.\n###--->  I asked you to guess a number from " 
+                             << MinNumber 
+                             << " to " 
+                             << MaxNumber 
+                             << ".\n###--->  How hard can that be to follow?\n\n\n";
                }
 
            } while ((UserGuessedNumber < MinNumber) || (UserGuessedNumber > MaxNumber));
 
            UserAlreadyGuessedThisNumber = false;
-
-           for (iteration = 0; iteration < UserGuesses.size(); iteration++)
-           {
-               if (UserGuesses[iteration] == UserGuessedNumber)
-               {
-                   UserAlreadyGuessedThisNumber = true;
-                   break;
-               }
-           }
+            
+           // Use a "Null Statement" to find if the user already selected the number.
+           for (iteration = 0; ((iteration < UserGuesses.size()) && (UserGuesses[iteration] != UserGuessedNumber)); iteration++);
+           
+           // If the iteration value is less than the size of the number of guesses the user has already made,
+           // then we know the user has already chosen that number. We do not need to verify that since logic
+           // dictates this to be true.
+           if (iteration < UserGuesses.size()) UserAlreadyGuessedThisNumber = true;
 
            if (UserAlreadyGuessedThisNumber == false)
            {
                UserGuesses.push_back(UserGuessedNumber);
            } else {
                std::cout << "\n\n###--->  You have already chosen the number " 
-						 << UserGuessedNumber 
-						 << ". Please try again\n\n\n";
+                         << UserGuessedNumber 
+                         << ". Please try again\n\n\n";
            }
 
        } while (UserAlreadyGuessedThisNumber);
 
        std::cout << "]  You chose the number " 
-				 << UserGuessedNumber 
-				 << " and ";
+                 << UserGuessedNumber 
+                 << " and ";
 
        if (UserGuessedNumber < SecretNumber)
        {
@@ -158,7 +157,7 @@ int main()
                          break;
 
                 case 2:  std::cout << "I can't believe you guessed it!\n]  I think you cheated and I'm not playing with you "
-									  "anymore!\n";
+                                      "anymore!\n";
                          break;
             }
 
@@ -169,12 +168,12 @@ int main()
                 switch(RandomMessage) {
 
                     case 0:  std::cout << "\n\n###\n###  Whoa! That was a very close call! You guessed my number on your "
-										  "last try!\n###\n";
+                                          "last try!\n###\n";
                              break;
 
                     case 1:  std::cout << "\n\n###\n###  I think you already knew my number and waited until the last moment "
-										  "just\n###  for thrill of the suspense, and to make everyone else sweat so you can"
-										  "\n###  have a great laugh at our expense.\n###\n";
+                                          "just\n###  for thrill of the suspense, and to make everyone else sweat so you can"
+                                          "\n###  have a great laugh at our expense.\n###\n";
                              break;
                 }
             }
@@ -186,10 +185,10 @@ int main()
        if (GuessesLeft > 0)
        {
           std::cout << "\n\n###  You have " 
-					<< GuessesLeft 
-					<< " more chance" 
-					<< (GuessesLeft > 1 ? "s" : "")
-					<< " left to guess the number I am thinking of.\n\n\n";
+                    << GuessesLeft 
+                    << " more chance" 
+                    << (GuessesLeft > 1 ? "s" : "")
+                    << " left to guess the number I am thinking of.\n\n\n";
        }
 
   } while (GuessesLeft > 0);
@@ -201,17 +200,17 @@ int main()
       switch(RandomMessage) {
 
             case 0:  std::cout << "\n\n###\n###\n###  You did not guess the number I was thinking of within the " 
-							   << MaxGuessesLeft 
-							   << " guess"
-							   << (MaxGuessesLeft > 1 ? "es" : "")
-							   << "\n###  I gave you.\n###  Better luck next time!\n###\n###\n\n";
+                               << MaxGuessesLeft 
+                               << " guess"
+                               << (MaxGuessesLeft > 1 ? "es" : "")
+                               << "\n###  I gave you.\n###  Better luck next time!\n###\n###\n\n";
                      break;
 
             case 1:  std::cout << "\n\n###\n###\n###  Well, you are not a winner this time. Please try again.\n###\n###\n\n";
                      break;
 
             case 2:  std::cout << "\n\n###\n###\n###  Well, you failed to disarm the trap, and the treasure\n###  chest "
-								  "exploded disintegrating all the gold coins inside.\n###  Please try again.\n###\n###\n\n";
+                                  "exploded disintegrating all the gold coins inside.\n###  Please try again.\n###\n###\n\n";
                      break;
       }
   }
