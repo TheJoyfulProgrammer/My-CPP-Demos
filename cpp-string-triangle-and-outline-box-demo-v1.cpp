@@ -27,7 +27,7 @@ int main()
 	
 	PrintTriangleWaterfall(UserInput);
 	
-	for(Iterator1 = 1; Iterator1 <= 5; Iterator1++)
+	for(Iterator1 = 1; Iterator1 <= UserInput.size(); Iterator1++)
 	{
 		PrintBoxMessage(UserInput.substr(0, Iterator1));
 	}
