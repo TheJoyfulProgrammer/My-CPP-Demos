@@ -48,7 +48,9 @@ bool SortStructList(const ModeNumbers::NumberCount &lhs, const ModeNumbers::Numb
 
 int main()
 {
-    int32_t UserValue;
+    int CinStatus{0};
+    
+    int32_t UserValue{0};
     
     uint32_t CurrentValue{0};
     
@@ -60,22 +62,35 @@ int main()
 
     do
     {
-        std::cout << "Value #" << (CurrentValue + 1) << ": ";
-        std::cin >> UserValue;
-        
-        if((CurrentValue < 3) & (UserValue < 0))
+        do
         {
-            std::cout << "You must enter three or more integer values.\n\n";
-            UserValue = 0;
-        } else {
-            if(UserValue >= 0)
-            {
-                ModeNumbers::UserNumberList.push_back(UserValue);
-            }
+            CinStatus = true;
             
-            CurrentValue++;
-        }
-    
+            std::cout << "Value #" << (CurrentValue + 1) << ": ";
+            std::cin >> UserValue;
+            
+            if (std::cin.fail()) {
+                CinStatus = false;
+
+                std::cin.clear();
+                while ((getchar()) != '\n');
+
+                std::cout << "ERROR: Invalid input. Please try again.\n\n";
+            } else {
+                if((CurrentValue < 3) & (UserValue < 0))
+                {
+                    std::cout << "You must enter three or more integer values.\n\n";
+                    UserValue = 0;
+                } else {
+                    if(UserValue >= 0)
+                    {
+                        ModeNumbers::UserNumberList.push_back(UserValue);
+                    }
+                    
+                    CurrentValue++;
+                }
+            }
+        } while (!CinStatus);
     } while(UserValue >= 0);
     
     std::cout << "\n\nUser number set: {";
@@ -116,22 +131,19 @@ int main()
               << " time" 
               << (ModeNumbers::NumberCounts[ModeNumbers::NumberCounts.size() - 1].Count > 1 ? "s" : "") 
               << " and is a mode of the list.\n";
-    
-    if(ModeNumbers::NumberCounts.size() > 1)
+
+    for(uint32_t Iterator1 = ModeNumbers::NumberCounts.size() - 2; Iterator1 > 0; Iterator1--)
     {
-        for(uint32_t Iterator1 = ModeNumbers::NumberCounts.size() - 2; Iterator1 > 0; Iterator1--)
+        if(ModeNumbers::NumberCounts[Iterator1].Count == HighestNumberCount)
         {
-            if(ModeNumbers::NumberCounts[Iterator1].Count == HighestNumberCount)
-            {
-                std::cout << ModeNumbers::NumberCounts[Iterator1].Value 
-                          << " occurs "
-                          << ModeNumbers::NumberCounts[Iterator1].Count
-                          << " time" 
-                          << (ModeNumbers::NumberCounts[Iterator1].Count > 1 ? "s" : "") 
-                          << " and is a mode of the list.\n";
-             } else {
-                break;
-            }
+            std::cout << ModeNumbers::NumberCounts[Iterator1].Value 
+                      << " occurs "
+                      << ModeNumbers::NumberCounts[Iterator1].Count
+                      << " time" 
+                      << (ModeNumbers::NumberCounts[Iterator1].Count > 1 ? "s" : "") 
+                      << " and is a mode of the list.\n";
+         } else {
+            break;
         }
     }
 }
