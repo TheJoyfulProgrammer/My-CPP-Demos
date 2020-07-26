@@ -134,16 +134,16 @@ int main()
 
     for(uint32_t Iterator1 = ModeNumbers::NumberCounts.size() - 2; Iterator1 > 0; Iterator1--)
     {
-        if(ModeNumbers::NumberCounts[Iterator1].Count == HighestNumberCount)
-        {
+        //if(ModeNumbers::NumberCounts[Iterator1].Count == HighestNumberCount)
+        //{
             std::cout << ModeNumbers::NumberCounts[Iterator1].Value 
                       << " occurs "
                       << ModeNumbers::NumberCounts[Iterator1].Count
                       << " time" 
                       << (ModeNumbers::NumberCounts[Iterator1].Count > 1 ? "s" : "") 
                       << " and is a mode of the list.\n";
-         } else {
-            break;
-        }
+         //} else {
+         //   break;
+        //}
     }
 }
