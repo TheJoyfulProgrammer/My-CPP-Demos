@@ -28,8 +28,6 @@ namespace ModeNumbers
     };
     
     std::vector<uint32_t> UserNumberList;
-    std::vector<uint32_t> UserNumberListTemp;
-   
     std::vector<NumberCount> NumberCounts;
 }
 
@@ -45,13 +43,36 @@ bool SortStructList(const ModeNumbers::NumberCount &lhs, const ModeNumbers::Numb
      return lhs.Count < rhs.Count; 
 }
 
+template <typename TemplateParameter>
+void PrintSimpleVector(const std::vector<TemplateParameter> CurrentVector)
+{
+    std::cout << "{ ";
+    
+    for(uint32_t Iterator1 = 0; Iterator1 < CurrentVector.size(); Iterator1++)
+    {
+        std::cout << CurrentVector[Iterator1]
+                  << (Iterator1 < CurrentVector.size() - 1 ? ", " : "");
+    }
+    
+    std::cout << "}\n";
+}
+
+                           
+void PrintMode(const std::vector<ModeNumbers::NumberCount> CurrentVector, const int32_t Position)
+{
+    std::cout << CurrentVector[Position].Value 
+              << " occurs "
+              << CurrentVector[Position].Count
+              << " time" 
+              << (CurrentVector[Position].Count > 1 ? "s" : "") 
+              << " and is a mode of the list.\n";
+}
+
 
 int main()
 {
     int CinStatus{0};
-    
     int32_t UserValue{0};
-    
     uint32_t CurrentValue{0};
     
     std::cout << "This app will display the Mode (the number(s) duplicated the most times\n"
@@ -93,57 +114,63 @@ int main()
         } while (!CinStatus);
     } while(UserValue >= 0);
     
-    std::cout << "\n\nUser number set: {";
     
-    for(uint32_t Iterator1 = 0; Iterator1 < ModeNumbers::UserNumberList.size(); Iterator1++)
+    
+    std::cout << "\nUser number set:\n";
+    PrintSimpleVector(ModeNumbers::UserNumberList);
+  
+    
+    std::sort(ModeNumbers::UserNumberList.begin(), ModeNumbers::UserNumberList.end(), SortIntList);
+    
+    
+    std::cout << "\nSorted number set:\n";
+    PrintSimpleVector(ModeNumbers::UserNumberList);
+    std::cout << "\n";
+  
+    
+    std::sort(ModeNumbers::UserNumberList.begin(), ModeNumbers::UserNumberList.end(), SortIntList);
+    
+    
+    ModeNumbers::NumberCount CurrentNumberCounter{ModeNumbers::UserNumberList[0], (uint32_t) 1};
+    
+    
+    for(uint32_t Iterator1 = 1; Iterator1 < ModeNumbers::UserNumberList.size(); Iterator1++)
     {
-        std::cout << ModeNumbers::UserNumberList[Iterator1]
-                  << (Iterator1 < ModeNumbers::UserNumberList.size() - 1 ? ", " : "");
-    }
-    
-    std::cout << "}\n\n";
-    
-    ModeNumbers::UserNumberListTemp = ModeNumbers::UserNumberList;
-    
-    std::sort(ModeNumbers::UserNumberListTemp.begin(), ModeNumbers::UserNumberListTemp.end(), SortIntList);
-    
-    ModeNumbers::NumberCount CurrentNumberCounter{ModeNumbers::UserNumberListTemp[0], (uint32_t) 1};
-    
-    for(uint32_t Iterator1 = 1; Iterator1 < ModeNumbers::UserNumberListTemp.size(); Iterator1++)
-    {
-        if(ModeNumbers::UserNumberListTemp[Iterator1] == CurrentNumberCounter.Value)
+        if(ModeNumbers::UserNumberList[Iterator1] == CurrentNumberCounter.Value)
         {
             CurrentNumberCounter.Count++;
         } else {
             ModeNumbers::NumberCounts.push_back(ModeNumbers::NumberCount{CurrentNumberCounter.Value, CurrentNumberCounter.Count});
-            CurrentNumberCounter.Value = ModeNumbers::UserNumberListTemp[Iterator1];
+            CurrentNumberCounter.Value = ModeNumbers::UserNumberList[Iterator1];
             CurrentNumberCounter.Count = 1;            
         }
     }
     
+    ModeNumbers::NumberCounts.push_back(ModeNumbers::NumberCount{CurrentNumberCounter.Value, CurrentNumberCounter.Count});
+    
+   
     std::sort(ModeNumbers::NumberCounts.begin(), ModeNumbers::NumberCounts.end(), SortStructList);
+    
+    
+    for(int32_t Iterator1 = ModeNumbers::NumberCounts.size() - 1; Iterator1 >= 0; Iterator1--)
+    {
+        std::cout << "The value " << ModeNumbers::NumberCounts[Iterator1].Value 
+                  << " is in the list " << ModeNumbers::NumberCounts[Iterator1].Count
+                  << " times.\n";
+    }
+    std::cout << "\n";
     
     uint32_t HighestNumberCount{ModeNumbers::NumberCounts[ModeNumbers::NumberCounts.size() - 1].Count};
     
-    std::cout << ModeNumbers::NumberCounts[ModeNumbers::NumberCounts.size() - 1].Value 
-              << " occurs "
-              << ModeNumbers::NumberCounts[ModeNumbers::NumberCounts.size() - 1].Count
-              << " time" 
-              << (ModeNumbers::NumberCounts[ModeNumbers::NumberCounts.size() - 1].Count > 1 ? "s" : "") 
-              << " and is a mode of the list.\n";
-
-    for(uint32_t Iterator1 = ModeNumbers::NumberCounts.size() - 2; Iterator1 > 0; Iterator1--)
+    PrintMode(ModeNumbers::NumberCounts, ModeNumbers::NumberCounts.size() - 1);
+    
+    for(int32_t Iterator1 = ModeNumbers::NumberCounts.size() - 2; Iterator1 >= 0; Iterator1--)
     {
-        //if(ModeNumbers::NumberCounts[Iterator1].Count == HighestNumberCount)
-        //{
-            std::cout << ModeNumbers::NumberCounts[Iterator1].Value 
-                      << " occurs "
-                      << ModeNumbers::NumberCounts[Iterator1].Count
-                      << " time" 
-                      << (ModeNumbers::NumberCounts[Iterator1].Count > 1 ? "s" : "") 
-                      << " and is a mode of the list.\n";
-         //} else {
-         //   break;
-        //}
+        if(ModeNumbers::NumberCounts[Iterator1].Count == HighestNumberCount)
+        {
+            PrintMode(ModeNumbers::NumberCounts, Iterator1);
+        } else {
+            break;
+        }
     }
 }
